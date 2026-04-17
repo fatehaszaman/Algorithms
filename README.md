@@ -1,26 +1,28 @@
 # Algorithms
 
-Java implementations of core algorithms from a Design and Analysis of Algorithms course. Covers graph algorithms, greedy methods, dynamic programming, and a detailed progression through sorting.
+Java implementations from a Design and Analysis of Algorithms course. The bulk of this is graph algorithms and sorting, which ended up being the most interesting parts of the course by a wide margin.
 
 ## Contents
 
 | Directory | What's in it |
 |---|---|
 | `astar` | A* search, greedy best-first, uniform cost |
-| `changeMaking` | Change-making problem — greedy vs. dynamic programming |
+| `changeMaking` | Change-making problem: greedy vs. dynamic programming |
 | `dijkstra` | Dijkstra's shortest path with interface abstraction |
 | `divideConquer` | Divide and conquer problems |
 | `graph` | Graph data structure with BFS/DFS traversal |
 | `huffman` | Huffman encoding/decoding with priority queue |
-| `mst` | Minimum spanning tree — Kruskal and Prim |
+| `mst` | Minimum spanning tree: Kruskal and Prim |
 
-### Sorting — three folders, three stages
+## Sorting: three folders, three stages
 
-The sorting implementations are split intentionally across three folders representing different stages of the course:
+The sorting code is split across three folders on purpose. They represent three different passes at the same set of algorithms over the course of the semester.
 
-- **`sorting.algorithms/`** — clean baseline implementations of Bubble, Heap, Quicksort (Hoare + Lomuto), Insertion, Selection, with a shared `Sort` base class
-- **`sortingcomplexity/`** — the same algorithms instrumented with operation counters to empirically measure and compare time complexity; adds `MergeSort` and `OptimizedBubbleSort`; `TestBench` runs all of them and reports exact operation counts
-- **`sorting/generics/`** — refactored to use Java generics and a Comparator-style `ISortingOrder` interface so the same sort works on any `Comparable` type in ascending or descending order
+`sorting.algorithms/` is the clean baseline: Bubble, Heap, Quicksort (Hoare and Lomuto variants), Insertion, Selection. All extend a shared `Sort` base class with a static `swap` utility.
+
+`sortingcomplexity/` instruments the same algorithms with operation counters so you can run them and see the actual step counts, not just the asymptotic labels. `TestBench` runs all of them on the same input and prints a comparison. This is also where `MergeSort` and `OptimizedBubbleSort` were added.
+
+`sorting/generics/` is a refactor using Java generics and a Comparator-style `ISortingOrder` interface. The same sort logic works on any `Comparable` type in either ascending or descending order. There is also a generic `Stack` implementation used internally.
 
 ## Stack
 
